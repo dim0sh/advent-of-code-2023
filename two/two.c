@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define max_red 12
 #define max_green 13
@@ -25,20 +26,35 @@ typedef struct game {
  */
 game_t * parse_game(char * game_result)
 {
+    // create new game struct to contain gameresult
     game_t * game = (game_t *) malloc(sizeof(game_t));
     game->red = (int *) malloc(num_pulls*sizeof(int));
     game->green = (int *) malloc(num_pulls*sizeof(int));
     game->blue = (int *) malloc(num_pulls*sizeof(int));
-    game->id = 12;
-    game->red[0] = 2;
-    game->red[1] = 1;
-    game->red[2] = 1;
-    game->green[0] = 1;
-    game->green[1] = 1;
-    game->green[2] = 1;
-    game->blue[0] = 1;
-    game->blue[1] = 1;
-    game->blue[2] = 1;
+    // read game id from string
+    int i = 5;
+    char string_id[4];
+    while ((int)game_result[i] != 58/*58 => ASCII for :*/)
+    {
+        string_id[i-5] = game_result[i];
+        i++;
+    }
+    game->id = atoi(string_id);
+    
+    
+    
+    
+    
+    
+    // game->red[0] = 2;
+    // game->red[1] = 1;
+    // game->red[2] = 1;
+    // game->green[0] = 1;
+    // game->green[1] = 1;
+    // game->green[2] = 1;
+    // game->blue[0] = 1;
+    // game->blue[1] = 1;
+    // game->blue[2] = 1;
     
     
     return game;
@@ -72,7 +88,8 @@ int main()
     
     game_t * game1 = parse_game(game_result_1);
     int x = valid_game(game1);
-    printf("game id: %d",x);
+    printf("game id: %d\n", game1->id);
+    printf("valid game id: %d",x);
 
     return 0;
 }
