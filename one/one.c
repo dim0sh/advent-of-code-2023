@@ -62,6 +62,7 @@ int search_str(char * str)
     x = search_str_int(str);
     _strrev(strcp);
     y = search_str_int(strcp);
+    free(strcp);
     return x*10+y;
 }
 
