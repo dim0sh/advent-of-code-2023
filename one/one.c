@@ -72,7 +72,7 @@ int main()
     char * str2 = "pqr3stu8vwx";
     char * str3 = "a1b2c3d4e5f";
     char * str4 = "treb7uchet";
-    char * str5 = "2akhsd0alsj";
+    // char * str5 = "2akhsd0alsj";
     
     printf("x:%d\n",search_str(str3));
 }
