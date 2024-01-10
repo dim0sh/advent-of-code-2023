@@ -40,12 +40,9 @@ game_t * parse_game(char * game_result)
         i++;
     }
     game->id = atoi(string_id);
+    //read pieces (red, green, blue)
     
-    
-    
-    
-    
-    
+        
     // game->red[0] = 2;
     // game->red[1] = 1;
     // game->red[2] = 1;
