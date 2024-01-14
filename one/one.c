@@ -12,14 +12,16 @@ char norm_numbs[9][10] = {"one","two","three","four","five","six","seven","eight
 char back_numbs[9][10] = {"eno","owt","eerht","ruof","evif","xis","neves","thgie","enin"};
 int contains_string_num(char * str, int backwards)
 {   
-    char * numbs = &norm_numbs;
+    char (* numbs)[10];
     if (backwards) {
-        numbs = &back_numbs;
+        numbs = back_numbs;
+    } else {
+        numbs = norm_numbs;
     }
 
     for (int i = 0; i<9; i++)
     {
-        if (strncmp(str,&(numbs+i*10)[0],str_len(&(numbs+i*10)[0])-1) == 0)
+        if (strncmp(str,&numbs[i][0],str_len(&numbs[i][0])-1) == 0)
         {
             return i+1;
         }
