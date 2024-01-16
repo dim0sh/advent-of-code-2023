@@ -189,7 +189,7 @@ int main()
     size_t len = 0;
     int sum = 0;
 
-    fp = fopen("./input.txt", "r");
+    fp = fopen("../input.txt", "r");
     if (fp == NULL)
         exit(EXIT_FAILURE);
 

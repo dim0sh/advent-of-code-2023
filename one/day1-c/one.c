@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 int str_len(char * str)
 {
@@ -118,13 +119,13 @@ int main()
     char * str4 = "treb7uchet";
     // char * str5 = "kqrcrq723";
     char * str_test = "asdadsoneeight3434";
-    
+    clock_t t ;
     FILE * fp;
     char * line = NULL;
     size_t len = 0;
     int sum = 0;
-
-    fp = fopen("./input.txt", "r");
+    t = clock();
+    fp = fopen("../input.txt", "r");
     if (fp == NULL)
         exit(EXIT_FAILURE);
 
@@ -137,10 +138,16 @@ int main()
         free(line);
     printf("sum:%d\n",sum);
     int sum_test = 0;
+    
+    
     for (int i = 0; i<str_len(str_test);i++)
     {
         sum_test += contains_string_num(&str_test[i],0);
     }
+    t = clock() - t;
+    double time_taken = ((double)t)/CLOCKS_PER_SEC; // in seconds
+    printf("took %f seconds to execute \n", time_taken);
+    printf("%d\n",CLOCKS_PER_SEC);
     printf("sum_test:%d\n",sum_test);
     printf("search_test:%d\n",search_str(str4));
 }
