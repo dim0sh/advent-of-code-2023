@@ -40,6 +40,9 @@ fn calc_surrounding_sum(input: Vec<Element>, width:i32) -> u32 {
                         match input[index] {
                             Element::Number(n) => {
                                 sub_sum += n;
+                                // TODO:
+                                // check for nums with more than one digit
+                                // numbers in same row not twice
                             },
                             _ => {},
                         }
